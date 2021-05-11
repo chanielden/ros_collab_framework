@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+run.launch: this file runs the project
+Author: Daniel Chen
+Date: 2020/05/07
+-->
+<launch>
+
+<!-- rostopic to subscribe -->
+  <arg name="bodypoints" default="/frame" />
+
+  <include file="$(find ros_openpose_gesture)/scripts/import.py" >
+  </include>
+
+</launch>
