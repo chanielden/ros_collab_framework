@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+run.launch: this file runs the object tracking
+Author: Daniel Chen
+Date: 2020/05/07
+-->
+<launch>
+
+  <node name="ar_track_alvar" pkg="collab_perception" type="arTrack.py" output="screen" required="true">
+  </node>
+
+</launch>

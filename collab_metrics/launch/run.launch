@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+run.launch: this file runs the project
+Author: Daniel Chen
+Date: 2020/05/07
+-->
+<launch>
+
+  <node name="collab_posture" pkg="collab_metrics" type="posture.py" output="screen" required="true">
+  </node>
+
+</launch>

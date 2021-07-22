@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ros_openpose_gesture</name>
+  <name>collab_decision</name>
   <version>0.0.0</version>
-  <description>The ros_openpose_gesture package</description>
+  <description>The ROS collaborative algorithm decision package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
