@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+run.launch: this file runs the project
+Author: Daniel Chen
+Date: 2020/05/07
+-->
+<launch>
+
+  <!-- set this flag to turn on/off printing results to console -->
+  <arg name="print_output"          default="true" />
+
+  <!-- length of the delay from launch to calibration begin in seconds -->
+  <arg name="start_delay"           default="2" />
+
+  <!-- length of the calibration period in seconds -->
+  <arg name="calibrate_time"        default="5" />
+
+  <node name="collab_posture" pkg="collab_metrics" type="calibratePos.py" output="screen" required="true">
+    
+    <param name="print_output"            type="bool"     value="$(arg print_output)"/>
+    <param name="start_delay"             type="int"      value="$(arg start_delay)"/>
+    <param name="calibrate_time"          type="int"      value="$(arg calibrate_time)"/>
+  
+  </node>
+
+</launch>

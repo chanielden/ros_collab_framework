@@ -16,7 +16,7 @@ ergoFloatBack = [] # Creating empty list
 ergoSecsArm = 0 # Start at 0
 ergoSecsBack = 0 # Start at 0
 
-def callback(msg):
+def callback(arm, back):
     # Collecting data from topic 'frame'
     bodyPts = [bodyPart.pixel for person in msg.persons for bodyPart in person.bodyParts]
 

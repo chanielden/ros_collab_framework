@@ -6,7 +6,44 @@ Date: 2020/05/07
 -->
 <launch>
 
+  <!-- set this flag to the stable OpenPose FPS -->
+  <arg name="fps"          default="20" />
+
+  <!-- number of samples taken per second -->
+  <arg name="sampleFreq"           default="2" />
+
+  <!-- length of the floating average duration (in seconds) -->
+  <arg name="scoreLength"        default="5" />
+
+  <!-- length of time before the ergonomic penalty kicks in (in seconds) -->
+  <arg name="ergoTrigger"        default="5" />
+
+  <!-- value of the ergonomic penalty (in points) -->
+  <arg name="ergoPenalty"        default="15" />
+
+  <!-- value of the ergonomic penalty (in points) -->
+  <arg name="backlvl"        default="[5,20,60]" />
+
+  <!-- value of the ergonomic penalty (in points) -->
+  <arg name="armRlvl"        default="[20,45,90]" />
+
+  <!-- value of the ergonomic penalty (in points) -->
+  <arg name="backpt"        default="[1,3,5,7]" />
+
+  <!-- value of the ergonomic penalty (in points) -->
+  <arg name="armRpt"        default="[1,3,5,7]" />
+
   <node name="collab_posture" pkg="collab_metrics" type="posture.py" output="screen" required="true">
+    <param name="fps"                   type="int"     value="$(arg fps)"/>
+    <param name="sampleFreq"            type="int"     value="$(arg sampleFreq)"/>
+    <param name="scoreLength"           type="int"     value="$(arg scoreLength)"/>
+    <param name="ergoTrigger"           type="int"     value="$(arg ergoTrigger)"/>
+    <param name="ergoPenalty"           type="int"     value="$(arg ergoPenalty)"/>
+    <param name="backlvl"                    value="$(arg backlvl)"/>
+    <param name="armRlvl"                    value="$(arg armRlvl)"/>
+    <param name="backpt"                     value="$(arg backpt)"/>
+    <param name="armRpt"                     value="$(arg armRpt)"/>
+
   </node>
 
 </launch>
