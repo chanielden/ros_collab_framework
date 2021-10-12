@@ -17,9 +17,9 @@ class Body:
         self.shoulderR     = bodyPts[2]
         self.elbowR        = bodyPts[3]
         self.wristR        = bodyPts[4]
-        self.shoulderR     = bodyPts[5]
-        self.elbowR        = bodyPts[6]
-        self.wristR        = bodyPts[7]
+        self.shoulderL     = bodyPts[5]
+        self.elbowL        = bodyPts[6]
+        self.wristL        = bodyPts[7]
         self.waist         = bodyPts[8]
         # Lower body excluded as it is not used [for now]
 
@@ -69,7 +69,8 @@ class RealTimePosture():
             myAngle = 90-math.degrees(math.atan(-(pointA.y-pointB.y)/(pointA.x-pointB.x)))
         elif pointA.x < pointB.x: # leaning back
             myAngle = (90-math.degrees(math.atan((pointA.y-pointB.y)/(pointA.x-pointB.x))))
-            return myAngle
+            
+        return myAngle
 
     def frame_callback(self, data):
         '''

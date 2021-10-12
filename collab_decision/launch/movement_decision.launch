@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+run.launch: this file runs the project
+Author: Daniel Chen
+Date: 2020/05/07
+-->
+<launch>
+
+  <!-- set this flag to the stable OpenPose FPS -->
+  <arg name="leeway"          default='8' />
+
+  <!-- value of the desired angles for each limb (in points) -->
+  <arg name="armURAngle"        default="45" />
+  <arg name="armLRAngle"        default="60" />
+  <arg name="backAngle"         default="0" />
+
+  <node name="movement_decision" pkg="collab_decision" type="movement_decision.py" output="screen" required="true">
+    <param name="leeway"                   type="int"     value="$(arg leeway)"/>
+    <param name="armURAngle"               type="int"     value="$(arg armURAngle)"/>
+    <param name="armLRAngle"               type="int"     value="$(arg armLRAngle)"/>
+    <param name="backAngle"                type="int"     value="$(arg backAngle)"/>
+
+  </node>
+
+</launch>

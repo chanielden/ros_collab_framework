@@ -1,0 +1,11 @@
+<launch>    
+    <include file="$(find fetch_moveit_config)/launch/move_group.launch"/>
+
+   <!--  <node name="fetch_arm_server" pkg="hrca_action" type="fetch_arm_server.py"/> -->
+    <!--  
+        <node name="tuck_arm" pkg="collab_action" type="tuck_arm.py" />
+        <node name="ready_arm" pkg="collab_action" type="ready_arm.py" /> 
+        <node name="gripper_keyboard pkg="fetch_teleop2" type="gripper_keyboard.py" /> -->
+    
+    <node name="joystick_teleop" pkg="collab_action" type="joystick_teleop.cpp" />
+</launch>

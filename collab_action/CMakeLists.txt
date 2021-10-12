@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(collab_action)
 
+if (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+endif()
+
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
@@ -8,9 +12,50 @@ project(collab_action)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  actionlib
+  control_msgs
+  geometry_msgs
+  nav_msgs
   roscpp
+  sensor_msgs
+  topic_tools
+  message_generation
   rospy
   std_msgs
+)
+find_package(Boost REQUIRED)
+
+add_message_files(
+  FILES
+  TeleopMode.msg
+)
+
+
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
+catkin_package(
+  CATKIN_DEPENDS message_runtime
+)
+
+include_directories(
+  ${Boost_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
+)
+
+add_executable(teleop_custom src/teleop_custom.cpp)
+
+target_link_libraries(teleop_custom
+  ${Boost_LIBRARIES}
+  ${catkin_LIBRARIES}
+)
+
+install(DIRECTORY mesh
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  USE_SOURCE_PERMISSIONS
 )
 
 ## System dependencies are found with CMake's conventions

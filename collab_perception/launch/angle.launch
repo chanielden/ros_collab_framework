@@ -33,7 +33,7 @@ Date: 2020/05/07
   <!-- value of the ergonomic penalty (in points) -->
   <arg name="armRpt"        default="[1,3,5,7]" />
 
-  <node name="collab_posture" pkg="collab_metrics" type="posture.py" output="screen" required="true">
+  <node name="collab_posture" pkg="collab_perception" type="posture.py" output="screen" required="true">
     <param name="fps"                   type="int"     value="$(arg fps)"/>
     <param name="sampleFreq"            type="int"     value="$(arg sampleFreq)"/>
     <param name="scoreLength"           type="int"     value="$(arg scoreLength)"/>

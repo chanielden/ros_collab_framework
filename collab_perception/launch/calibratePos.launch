@@ -15,7 +15,7 @@ Date: 2020/05/07
   <!-- length of the calibration period in seconds -->
   <arg name="calibrate_time"        default="5" />
 
-  <node name="collab_posture" pkg="collab_metrics" type="calibratePos.py" output="screen" required="true">
+  <node name="collab_posture" pkg="collab_perception" type="calibratePos.py" output="screen" required="true">
     
     <param name="print_output"            type="bool"     value="$(arg print_output)"/>
     <param name="start_delay"             type="int"      value="$(arg start_delay)"/>
